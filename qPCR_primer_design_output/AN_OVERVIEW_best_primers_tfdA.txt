@@ -1,0 +1,374 @@
+
+tfdA_fw_552_rev_842_62.txt ###################### Total_nr_acc: 12 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_552_rev_842_62.txt	primerset_1	sum_3	3	~cgagcactcgctgatgt~tccacaaatggaagctgc~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_552_rev_842_62.txt	primerset_2	sum_4	1	~tgttgttcatgataacgcacc~acatgattggcaatcggg~	5	nr_fw:	2	nr_rev:	2	join-Blast: 	2	fw-Blast:	2	rev-Blast 	20
+tfdA_fw_552_rev_842_62.txt	primerset_3	sum_5	1	~tgtcgtccatagcgtctac~acgcgcataagtggcaa~	4	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_552_rev_842_62.txt	primerset_4	sum_6	1	~agttattcacgcgccatg~ccatacgtggcaggtgg~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	0	fw-Blast:	7	rev-Blast 	0
+
+tfdA_fw_389_rev_877_62.txt ###################### Total_nr_acc: 5 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_389_rev_877_62.txt	primerset_1	sum_1	1	~cggctcttttctctacgc~gggataatcgctgcacc~	2	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	3	rev-Blast 	0
+tfdA_fw_389_rev_877_62.txt	primerset_2	sum_2	1	~tctagcctcgctgctgt~gacaacaccggcaccat~	0	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_266_rev_868_62.txt ###################### Total_nr_acc: 15 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_868_62.txt	primerset_1	sum_5	5	~caatctcggcaaggacg~gtgatgtgggacaaccg~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_868_62.txt	primerset_2	sum_6	1	~cgaacattaccaaggatgga~tctttgggacaaccgca~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_868_62.txt	primerset_3	sum_7	1	~atgtcgacgaagagggc~ctggtctgggacgacag~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_444_rev_651_62.txt ###################### Total_nr_acc: 14 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_444_rev_651_62.txt	primerset_1	sum_2	2	~accgaattcgccgacat~ggagatgttcaagccggt~	4	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_444_rev_651_62.txt	primerset_2	sum_3	1	~cacgtggttcgccaatat~ggctgagtggatcgacg~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	4	rev-Blast 	0
+tfdA_fw_444_rev_651_62.txt	primerset_3	sum_4	1	~gacacgctgttcgtcga~cccgtccggatgtctac~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_651_rev_842_62.txt ###################### Total_nr_acc: 17 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_651_rev_842_62.txt	primerset_1	sum_3	3	~gatgttcaagccggtgc~tccacaaatggaagctgc~	3	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_651_rev_842_62.txt	primerset_2	sum_4	1	~cgcacccagacttacagt~acatgattggcaatcggg~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	2	fw-Blast:	3	rev-Blast 	30
+tfdA_fw_651_rev_842_62.txt	primerset_3	sum_5	1	~cccgtccggatgtctac~cacgcataaatggaacatcg~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_471_rev_651_62.txt ###################### Total_nr_acc: 20 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_471_rev_651_62.txt	primerset_1	sum_2	2	~cctatgacgcgctcgac~gatgttcaagccggtgc~	8	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_471_rev_651_62.txt	primerset_2	sum_3	1	~ggcttatgaggcgctgt~aggccattggcgagaaa~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_471_rev_651_62.txt	primerset_3	sum_4	1	~cgtacgaagcactgccc~cccgtccggatgtctac~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_389_rev_552_62.txt ###################### Total_nr_acc: 16 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_389_rev_552_62.txt	primerset_1	sum_5	5	~attctcgctgctgtcgg~cgagcactcgctgatgt~	10	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_552_62.txt	primerset_2	sum_6	1	~cggctcgctgctctatg~gatcaactacaacccgttca~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_552_62.txt	primerset_3	sum_7	1	~cagtgtgtcgctgctgt~gtgcacgactatttccactc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_438_rev_868_62.txt ###################### Total_nr_acc: 10 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_438_rev_868_62.txt	primerset_1	sum_5	5	~ggcaacaccgaattcgc~gtgatgtgggacaaccg~	4	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_438_rev_868_62.txt	primerset_2	sum_6	1	~ggtggcaataccgggtt~tggtgatctgggacaaca~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_438_rev_868_62.txt	primerset_3	sum_7	1	~ggcaacaccgagttcac~gtgatgtgggacaaccg~	0	nr_fw:	3	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_877_62.txt ###################### Total_nr_acc: 4 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_877_62.txt	primerset_1	sum_2	2	~agattcacttttccgatgctg~gacaacaccggcaccat~	2	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	19	rev-Blast 	0
+tfdA_fw_120_rev_877_62.txt	primerset_2	sum_3	1	~agaaaccaagcccttgatg~caacgcgcagttgttgc~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	7	rev-Blast 	0
+
+tfdA_fw_266_rev_552_62.txt ###################### Total_nr_acc: 22 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_552_62.txt	primerset_1	sum_3	3	~caatctcggcaaggacg~cgagcactcgctgatgt~	14	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_552_62.txt	primerset_2	sum_5	2	~caccaaaatcagtctcgatgt~tattcacgcgccatggg~	6	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_552_62.txt	primerset_3	sum_6	1	~ccaacctggatgaacgc~cgcggtgcatgactact~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_552_62.txt	primerset_4	sum_7	1	~aacttaaagcgtcctgatgg~tgttgttcatgataacgcacc~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	2	rev-Blast 	4
+
+tfdA_fw_266_rev_577_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_577_62.txt	primerset_1	sum_3	3	~caatctcggcaaggacg~ggatcgctcggcttcac~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_577_62.txt	primerset_2	sum_4	1	~atgtcgacgaagagggc~cgttccaaggtgggcta~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_577_62.txt	primerset_3	sum_5	1	~aacttaaagcgtcctgatgg~gttgttcatgataacgcaccc~	2	nr_fw:	3	nr_rev:	3	join-Blast: 	2	fw-Blast:	2	rev-Blast 	4
+tfdA_fw_266_rev_577_62.txt	primerset_4	sum_6	1	~cgaacattaccaaggatgga~cggccctacaactaccc~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_444_rev_868_62.txt ###################### Total_nr_acc: 8 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_444_rev_868_62.txt	primerset_1	sum_3	3	~accgaattcgccgacat~gtgatgtgggacaaccg~	3	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_444_rev_868_62.txt	primerset_2	sum_4	1	~ccgagttcgccgacatg~ctggtctgggacgacag~	2	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_444_rev_868_62.txt	primerset_3	sum_5	1	~cacgtggttcgccaatat~tctttgggacaaccgca~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	4	rev-Blast 	0
+
+tfdA_fw_389_rev_868_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_389_rev_868_62.txt	primerset_1	sum_6	6	~attctcgctgctgtcgg~gtgatgtgggacaaccg~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_868_62.txt	primerset_2	sum_7	1	~ccggatcgatgctgcat~tctttgggacaaccgca~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_868_62.txt	primerset_3	sum_8	1	~cgcctattcgatgctgc~gtgatgtgggacaaccg~	0	nr_fw:	3	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_266_rev_651_62.txt ###################### Total_nr_acc: 29 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_651_62.txt	primerset_1	sum_2	2	~caatctcggcaaggacg~gatgttcaagccggtgc~	9	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_651_62.txt	primerset_2	sum_3	1	~cgaacattaccaaggatgga~ggctgagtggatcgacg~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_651_62.txt	primerset_3	sum_4	1	~aacttaaagcgtcctgatgg~cgcacccagacttacagt~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	2	fw-Blast:	2	rev-Blast 	6
+tfdA_fw_266_rev_651_62.txt	primerset_4	sum_5	1	~ctcgaacgccagcaaag~cccgtccggatgtctac~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_651_62.txt ###################### Total_nr_acc: 22 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_651_62.txt	primerset_1	sum_4	4	~gaccaggacatcaccga~gatgttcaagccggtgc~	10	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_651_62.txt	primerset_2	sum_5	1	~agaaaccaagcccttgatg~cacccagacttacagtctct~	8	nr_fw:	2	nr_rev:	2	join-Blast: 	2	fw-Blast:	7	rev-Blast 	14
+tfdA_fw_120_rev_651_62.txt	primerset_3	sum_6	1	~gccaaccaggacgtcag~cgcactggaaaacaccg~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_651_62.txt	primerset_4	sum_7	1	~cgaggcgtggacatgac~cccgtccggatgtctac~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_438_rev_651_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_438_rev_651_62.txt	primerset_1	sum_2	2	~ggcaacaccgaattcgc~ggagatgttcaagccggt~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_438_rev_651_62.txt	primerset_2	sum_3	1	~gaaggacaaacaagctttgtaa~cacccagacttacagtctct~	4	nr_fw:	2	nr_rev:	2	join-Blast: 	2	fw-Blast:	2	rev-Blast 	4
+tfdA_fw_438_rev_651_62.txt	primerset_3	sum_4	1	~ggtggcaataccgggtt~aggccattggcgagaaa~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_842_62.txt ###################### Total_nr_acc: 12 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_842_62.txt	primerset_1	sum_4	4	~gaccaggacatcaccga~tccacaaatggaagctgc~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_842_62.txt	primerset_2	sum_5	1	~agattcacttttccgatgctg~ccatacgtggcaggtgg~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	19	rev-Blast 	0
+tfdA_fw_120_rev_842_62.txt	primerset_3	sum_6	1	~ccaaccgctgacggaag~acgcgcataagtggcaa~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_842_62.txt	primerset_4	sum_7	1	~agaaaccaagcccttgatg~acatgattggcaatcggg~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	7	rev-Blast 	70
+
+tfdA_fw_438_rev_877_62.txt ###################### Total_nr_acc: 3 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_438_rev_877_62.txt	primerset_1	sum_1	1	~gaaggacaaacaagctttgtaa~caacgcgcagttgttgc~	2	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+tfdA_fw_438_rev_877_62.txt	primerset_2	sum_2	1	~gaggcaacaccggcttt~gacaacaccggcaccat~	0	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_341_62.txt ###################### Total_nr_acc: 15 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_341_62.txt	primerset_1	sum_3	3	~gaccaggacatcaccga~gcaactgcctgtggcat~	8	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_341_62.txt	primerset_2	sum_5	2	~agattcacttttccgatgctg~gggttcgctttactggc~	4	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	19	rev-Blast 	0
+tfdA_fw_120_rev_341_62.txt	primerset_3	sum_6	1	~cgaggcgtggacatgac~cggcgaaggctttcaca~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_341_62.txt	primerset_4	sum_7	1	~agaaaccaagcccttgatg~acaacagatttttggcattctg~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	7	rev-Blast 	14
+
+tfdA_fw_471_rev_842_62.txt ###################### Total_nr_acc: 8 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_471_rev_842_62.txt	primerset_1	sum_3	3	~cctatgacgcgctcgac~tccacaaatggaagctgc~	2	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_471_rev_842_62.txt	primerset_2	sum_4	1	~cgtacgaagcactgccc~cacgcataaatggaacatcg~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_471_rev_842_62.txt	primerset_3	sum_5	1	~tggcctacgagaccctc~acccacaaatggcaggt~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_266_rev_444_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_444_62.txt	primerset_1	sum_2	2	~ctccaatctcggcaagga~ccgagttcgccgacatg~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_444_62.txt	primerset_2	sum_3	1	~ccaatctggacgaacgc~ccacggaatttgccgac~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_444_62.txt	primerset_3	sum_4	1	~cgaacattaccaaggatgga~cacgtggttcgccaatat~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_266_rev_842_62.txt ###################### Total_nr_acc: 15 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_842_62.txt	primerset_1	sum_2	2	~caatctcggcaaggacg~tccacaaatggaagctgc~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_842_62.txt	primerset_2	sum_3	1	~atgtcgacgaagagggc~acgcgcataagtggcaa~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_842_62.txt	primerset_3	sum_4	1	~caaccacgacgagggag~acccacaaatggcaggt~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_842_62.txt	primerset_4	sum_5	1	~aacttaaagcgtcctgatgg~acatgattggcaatcggg~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	2	rev-Blast 	20
+
+tfdA_fw_389_rev_577_62.txt ###################### Total_nr_acc: 8 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_389_rev_577_62.txt	primerset_1	sum_4	4	~attctcgctgctgtcgg~ggatcgctcggcttcac~	3	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_577_62.txt	primerset_2	sum_5	1	~tatccctgttgtcggcc~cgcggactgacggattt~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_577_62.txt	primerset_3	sum_6	1	~ccggatcgatgctgcat~cggccctacaactaccc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_444_rev_877_62.txt ###################### Total_nr_acc: 4 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_444_rev_877_62.txt	primerset_1	sum_1	1	~gacacgctgttcgtcga~gggataatcgctgcacc~	0	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_266_rev_877_62.txt ###################### Total_nr_acc: 7 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_877_62.txt	primerset_1	sum_2	2	~caccaaaatcagtctcgatgt~gacaacaccggcaccat~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_877_62.txt	primerset_2	sum_3	1	~aacttaaagcgtcctgatgg~caacgcgcagttgttgc~	4	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+tfdA_fw_266_rev_877_62.txt	primerset_3	sum_4	1	~ctcgaacgccagcaaag~gggataatcgctgcacc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_577_rev_868_62.txt ###################### Total_nr_acc: 8 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_577_rev_868_62.txt	primerset_1	sum_5	5	~ggatcgctcggcttcac~gtgatgtgggacaaccg~	3	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_577_rev_868_62.txt	primerset_2	sum_6	1	~ttactacaatcctgagccga~tggtgatctgggacaaca~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	1	fw-Blast:	1	rev-Blast 	43
+tfdA_fw_577_rev_868_62.txt	primerset_3	sum_7	1	~cgttccaaggtgggcta~ctggtctgggacgacag~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_341_rev_577_62.txt ###################### Total_nr_acc: 11 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_341_rev_577_62.txt	primerset_1	sum_3	3	~gcaactgcctgtggcat~ggatcgctcggcttcac~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_577_62.txt	primerset_2	sum_4	1	~agccaatatgttctggcatac~cgttccaaggtgggcta~	2	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_577_62.txt	primerset_3	sum_5	1	~gggttcgctgtattggc~ttactacaatcctgagccga~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_577_62.txt	primerset_4	sum_6	1	~acaacagatttttggcattctg~gttgttcatgataacgcaccc~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	2	rev-Blast 	4
+
+tfdA_fw_389_rev_842_62.txt ###################### Total_nr_acc: 12 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_389_rev_842_62.txt	primerset_1	sum_4	4	~attctcgctgctgtcgg~tccacaaatggaagctgc~	4	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_842_62.txt	primerset_2	sum_5	1	~cggctcttttctctacgc~cacgcataaatggaacatcg~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	2	fw-Blast:	3	rev-Blast 	6
+tfdA_fw_389_rev_842_62.txt	primerset_3	sum_6	1	~cgcctattcgatgctgc~ccacgaatggcagatgc~	2	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_842_62.txt	primerset_4	sum_7	1	~cggctcgctgctctatg~acccacaaatggcaggt~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_341_rev_842_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_341_rev_842_62.txt	primerset_1	sum_2	2	~gcaactgcctgtggcat~tccacaaatggaagctgc~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_842_62.txt	primerset_2	sum_3	1	~agccaatatgttctggcatac~acgcgcataagtggcaa~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_842_62.txt	primerset_3	sum_4	1	~gggttcgctttactggc~ccatacgtggcaggtgg~	2	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_842_62.txt	primerset_4	sum_5	1	~caaccagctctggcaca~ccacgaatggcagatgc~	1	nr_fw:	4	nr_rev:	4	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_842_62.txt	primerset_5	sum_6	1	~acaacagatttttggcattctg~acatgattggcaatcggg~	0	nr_fw:	5	nr_rev:	5	join-Blast: 	2	fw-Blast:	2	rev-Blast 	20
+
+tfdA_fw_444_rev_842_62.txt ###################### Total_nr_acc: 7 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_444_rev_842_62.txt	primerset_1	sum_1	1	~accgaattcgccgacat~gtgcacaaatggacggt~	2	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_444_rev_842_62.txt	primerset_2	sum_2	1	~gacacgctgttcgtcga~cacgcataaatggaacatcg~	0	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_577_rev_877_62.txt ###################### Total_nr_acc: 3 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_577_rev_877_62.txt	primerset_1	sum_1	1	~acgctacccactatccc~gggataatcgctgcacc~	1	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_577_rev_877_62.txt	primerset_2	sum_2	1	~gttgttcatgataacgcaccc~caacgcgcagttgttgc~	0	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+
+tfdA_fw_471_rev_868_62.txt ###################### Total_nr_acc: 11 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_471_rev_868_62.txt	primerset_1	sum_4	4	~cctatgacgcgctcgac~gtgatgtgggacaaccg~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_471_rev_868_62.txt	primerset_2	sum_5	1	~ccgcttatgaagcattgcc~tctttgggacaaccgca~	0	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+
+tfdA_fw_266_rev_438_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_438_62.txt	primerset_1	sum_4	4	~caatctcggcaaggacg~ggcaacaccgaattcgc~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_438_62.txt	primerset_2	sum_5	1	~aacttaaagcgtcctgatgg~gaaggacaaacaagctttgtaa~	5	nr_fw:	2	nr_rev:	2	join-Blast: 	2	fw-Blast:	2	rev-Blast 	4
+tfdA_fw_266_rev_438_62.txt	primerset_3	sum_6	1	~caccaaaatcagtctcgatgt~gaggcaacaccggcttt~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_471_62.txt ###################### Total_nr_acc: 12 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_471_62.txt	primerset_1	sum_3	3	~gaccaggacatcaccga~cctatgacgcgctcgac~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_471_62.txt	primerset_2	sum_4	1	~gccaaccaggacgtcag~gggcctgcatcaggttc~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_471_62.txt	primerset_3	sum_5	1	~cgaggcgtggacatgac~cgtacgaagcactgccc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_341_rev_868_62.txt ###################### Total_nr_acc: 12 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_341_rev_868_62.txt	primerset_1	sum_3	3	~gcaactgcctgtggcat~gtgatgtgggacaaccg~	4	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_868_62.txt	primerset_2	sum_4	1	~agccaatatgttctggcatac~ctggtctgggacgacag~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_868_62.txt	primerset_3	sum_5	1	~caaccagctctggcaca~gtgatgtgggacaaccg~	2	nr_fw:	3	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_868_62.txt	primerset_4	sum_6	1	~aggaggagggtattggc~tcgtcatctgggacaacc~	0	nr_fw:	4	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_389_62.txt ###################### Total_nr_acc: 14 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_389_62.txt	primerset_1	sum_5	5	~gaccaggacatcaccga~attctcgctgctgtcgg~	7	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_389_62.txt	primerset_2	sum_6	1	~agcggccagaaactgaa~cggctcgctgctctatg~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_389_62.txt	primerset_3	sum_7	1	~cgaggcgtggacatgac~cggctcttttctctacgc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_444_62.txt ###################### Total_nr_acc: 10 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_444_62.txt	primerset_1	sum_2	2	~gaccaggacatcaccga~accgaattcgccgacat~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_444_62.txt	primerset_2	sum_3	1	~tggccagtcgatgagtc~cacgtggttcgccaatat~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_444_62.txt	primerset_3	sum_4	1	~gagcagccgttgaacga~ccacggaatttgccgac~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_341_rev_552_62.txt ###################### Total_nr_acc: 20 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_341_rev_552_62.txt	primerset_1	sum_2	2	~gcaactgcctgtggcat~cgagcactcgctgatgt~	14	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_552_62.txt	primerset_2	sum_4	2	~gagcaaccagctctggc~gtgcacgactatttccactc~	7	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_552_62.txt	primerset_3	sum_6	2	~gggttcgctttactggc~tattcacgcgccatggg~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_552_62.txt	primerset_4	sum_7	1	~acaacagatttttggcattctg~tgttgttcatgataacgcacc~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	2	rev-Blast 	4
+
+tfdA_fw_471_rev_877_62.txt ###################### Total_nr_acc: 1 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+
+tfdA_fw_389_rev_651_62.txt ###################### Total_nr_acc: 20 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_389_rev_651_62.txt	primerset_1	sum_4	4	~attctcgctgctgtcgg~gatgttcaagccggtgc~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_651_62.txt	primerset_2	sum_5	1	~ccggatcgatgctgcat~tgagtggatcgacgtgc~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_389_rev_651_62.txt	primerset_3	sum_6	1	~cggctcttttctctacgc~cccgtccggatgtctac~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	3	rev-Blast 	0
+
+tfdA_fw_120_rev_438_62.txt ###################### Total_nr_acc: 11 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_438_62.txt	primerset_1	sum_4	4	~gaccaggacatcaccga~ggcaacaccgaattcgc~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_438_62.txt	primerset_2	sum_5	1	~gccaaccaggacgtcag~cggcgagacccaattca~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_438_62.txt	primerset_3	sum_6	1	~agaaaccaagcccttgatg~gaaggacaaacaagctttgtaa~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	2	fw-Blast:	7	rev-Blast 	14
+
+tfdA_fw_438_rev_842_62.txt ###################### Total_nr_acc: 10 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_438_rev_842_62.txt	primerset_1	sum_3	3	~ggcaacaccgaattcgc~tccacaaatggaagctgc~	4	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_438_rev_842_62.txt	primerset_2	sum_4	1	~gaggcaacaccggcttt~ccatacgtggcaggtgg~	2	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_438_rev_842_62.txt	primerset_3	sum_5	1	~ggcaacaccgagttcac~ccacgaatggcagatgc~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_438_rev_842_62.txt	primerset_4	sum_6	1	~gaaggacaaacaagctttgtaa~acatgattggcaatcggg~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	2	rev-Blast 	20
+
+tfdA_fw_651_rev_877_62.txt ###################### Total_nr_acc: 3 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_651_rev_877_62.txt	primerset_1	sum_1	1	~cacccagacttacagtctct~caacgcgcagttgttgc~	1	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+
+tfdA_fw_577_rev_842_62.txt ###################### Total_nr_acc: 8 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_577_rev_842_62.txt	primerset_1	sum_3	3	~ggatcgctcggcttcac~tccacaaatggaagctgc~	3	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_577_rev_842_62.txt	primerset_2	sum_4	1	~acgctacccactatccc~cacgcataaatggaacatcg~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_577_rev_842_62.txt	primerset_3	sum_5	1	~gttgttcatgataacgcaccc~acatgattggcaatcggg~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	2	fw-Blast:	2	rev-Blast 	20
+
+tfdA_fw_120_rev_552_62.txt ###################### Total_nr_acc: 20 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_552_62.txt	primerset_1	sum_4	4	~gaccaggacatcaccga~cgagcactcgctgatgt~	14	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_552_62.txt	primerset_2	sum_6	2	~agattcacttttccgatgctg~tattcacgcgccatggg~	4	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	19	rev-Blast 	0
+tfdA_fw_120_rev_552_62.txt	primerset_3	sum_7	1	~gagcagccgttgaacga~gtgcacgactatttccactc~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_552_62.txt	primerset_4	sum_8	1	~agaaaccaagcccttgatg~tgttgttcatgataacgcacc~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	7	rev-Blast 	14
+
+tfdA_fw_552_rev_877_62.txt ###################### Total_nr_acc: 9 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_552_rev_877_62.txt	primerset_1	sum_2	2	~tattcacgcgccatggg~gacaacaccggcaccat~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_552_rev_877_62.txt	primerset_2	sum_4	2	~gtgcacgactatttccactc~gacaaccgctgcaccat~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+tfdA_fw_552_rev_877_62.txt	primerset_3	sum_5	1	~tgttgttcatgataacgcacc~caacgcgcagttgttgc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+
+tfdA_fw_341_rev_651_62.txt ###################### Total_nr_acc: 21 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_341_rev_651_62.txt	primerset_1	sum_2	2	~gcaactgcctgtggcat~gatgttcaagccggtgc~	7	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_651_62.txt	primerset_2	sum_3	1	~cggcgaaggctttcaca~cccgtccggatgtctac~	6	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_651_62.txt	primerset_3	sum_4	1	~gggttcgctgtattggc~caggccattggcgagaa~	2	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_651_62.txt	primerset_4	sum_5	1	~acaacagatttttggcattctg~cacccagacttacagtctct~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	2	rev-Blast 	4
+
+tfdA_fw_266_rev_471_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_266_rev_471_62.txt	primerset_1	sum_3	3	~caatctcggcaaggacg~cctatgacgcgctcgac~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_471_62.txt	primerset_2	sum_4	1	~cgaacattaccaaggatgga~ccgcttatgaagcattgcc~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_266_rev_471_62.txt	primerset_3	sum_5	1	~ctcgaacgccagcaaag~cgtacgaagcactgccc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_552_rev_868_62.txt ###################### Total_nr_acc: 12 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_552_rev_868_62.txt	primerset_1	sum_5	5	~cgagcactcgctgatgt~gtgatgtgggacaaccg~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_552_rev_868_62.txt	primerset_2	sum_6	1	~ttcaccaccgtttcggc~tcgtcatctgggacaacc~	0	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_868_62.txt ###################### Total_nr_acc: 13 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_868_62.txt	primerset_1	sum_6	6	~gaccaggacatcaccga~gtgatgtgggacaaccg~	6	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_868_62.txt	primerset_2	sum_7	1	~agcggccagaaactgaa~tcgtctactgggacaacc~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_868_62.txt	primerset_3	sum_8	1	~ccaaccgctgacggaag~ctggtctgggacgacag~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_341_rev_877_62.txt ###################### Total_nr_acc: 9 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_341_rev_877_62.txt	primerset_1	sum_3	3	~gagcaaccagctctggc~gacaaccgctgcaccat~	3	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_877_62.txt	primerset_2	sum_5	2	~gggttcgctttactggc~gacaacaccggcaccat~	1	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_341_rev_877_62.txt	primerset_3	sum_6	1	~acaacagatttttggcattctg~caacgcgcagttgttgc~	0	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	2	rev-Blast 	0
+
+tfdA_fw_651_rev_868_62.txt ###################### Total_nr_acc: 21 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_651_rev_868_62.txt	primerset_1	sum_4	4	~gatgttcaagccggtgc~gtgatgtgggacaaccg~	7	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_651_rev_868_62.txt	primerset_2	sum_5	1	~caggccattggcgagaa~tggtgatctgggacaaca~	0	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+
+tfdA_fw_120_rev_577_62.txt ###################### Total_nr_acc: 10 #######################################################################
+qpcr_file	nr_primerset	sum_targets	nr_targets	best_primer_comb	number_acc_tax	nr_fw		nr_rev		join-Blast		fw-Blast		rev-Blast	
+
+tfdA_fw_120_rev_577_62.txt	primerset_1	sum_5	5	~gaccaggacatcaccga~ggatcgctcggcttcac~	5	nr_fw:	1	nr_rev:	1	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_577_62.txt	primerset_2	sum_6	1	~cgaggcgtggacatgac~acgctacccactatccc~	3	nr_fw:	2	nr_rev:	2	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_577_62.txt	primerset_3	sum_7	1	~tggccagtcgatgagtc~cggccctacaactaccc~	1	nr_fw:	3	nr_rev:	3	join-Blast: 	0	fw-Blast:	0	rev-Blast 	0
+tfdA_fw_120_rev_577_62.txt	primerset_4	sum_8	1	~agaaaccaagcccttgatg~gttgttcatgataacgcaccc~	0	nr_fw:	4	nr_rev:	4	join-Blast: 	2	fw-Blast:	7	rev-Blast 	14

@@ -1,0 +1,54 @@
+	qpcr_analyse	length_qpcr_product	tax_level	max_qpcr_hits	max_qpcr_hits_all	sum_amounts	overview_tax__nr_qpcr
+20	clus_tfdA_fw_341_rev_842_62	389	|genus|	2	2	32.099999999999994	{'Bradyrhizobium': 7, 'Variovorax': 1, 'Achromobacter': 2, 'Pseudomonas': 1, 'Chryseobacterium': 1}
+26	clus_tfdA_fw_120_rev_577_62	375	|genus|	5	5	30.9	{'Bradyrhizobium': 1, 'Achromobacter': 2, 'Pseudomonas': 2, 'Chryseobacterium': 1}
+21	clus_tfdA_fw_120_rev_651_62	386	|genus|	4	4	30.9	{'Bradyrhizobium': 6, 'Achromobacter': 1, 'Pseudomonas': 7, 'Chryseobacterium': 2}
+28	clus_tfdA_fw_120_rev_552_62	374	|genus|	4	4	30.9	{'Bradyrhizobium': 3, 'Achromobacter': 3, 'Pseudomonas': 9, 'Chryseobacterium': 1}
+30	clus_tfdA_fw_120_rev_842_62	560	|genus|	4	4	30.9	{'Bradyrhizobium': 4, 'Achromobacter': 2, 'Pseudomonas': 2, 'Chryseobacterium': 1}
+4	clus_tfdA_fw_266_rev_577_62	249	|genus|	3	3	30.9	{'Bradyrhizobium': 3, 'Achromobacter': 3, 'Pseudomonas': 2, 'Chryseobacterium': 1}
+5	clus_tfdA_fw_266_rev_552_62	248	|genus|	3	3	30.9	{'Bradyrhizobium': 5, 'Achromobacter': 5, 'Pseudomonas': 7, 'Chryseobacterium': 1}
+17	clus_tfdA_fw_341_rev_577_62	204	|genus|	3	3	30.9	{'Bradyrhizobium': 3, 'Achromobacter': 4, 'Pseudomonas': 1, 'Chryseobacterium': 1}
+24	clus_tfdA_fw_120_rev_341_62	193	|genus|	3	3	30.9	{'Bradyrhizobium': 5, 'Achromobacter': 3, 'Pseudomonas': 3, 'Chryseobacterium': 1}
+42	clus_tfdA_fw_552_rev_842_62	207	|genus|	3	3	30.9	{'Bradyrhizobium': 4, 'Achromobacter': 1, 'Pseudomonas': 4, 'Chryseobacterium': 1}
+0	clus_tfdA_fw_266_rev_651_62	260	|genus|	2	2	30.9	{'Bradyrhizobium': 16, 'Achromobacter': 1, 'Pseudomonas': 6, 'Chryseobacterium': 2}
+7	clus_tfdA_fw_266_rev_842_62	434	|genus|	2	2	30.9	{'Bradyrhizobium': 8, 'Achromobacter': 2, 'Pseudomonas': 2, 'Chryseobacterium': 1}
+16	clus_tfdA_fw_341_rev_651_62	215	|genus|	2	2	30.9	{'Bradyrhizobium': 12, 'Achromobacter': 1, 'Pseudomonas': 4, 'Chryseobacterium': 2}
+18	clus_tfdA_fw_341_rev_552_62	203	|genus|	2	2	30.9	{'Bradyrhizobium': 5, 'Achromobacter': 6, 'Pseudomonas': 5, 'Chryseobacterium': 1}
+40	clus_tfdA_fw_389_rev_842_62	393	|genus|	4	4	29.8	{'Bradyrhizobium': 5, 'Variovorax': 1, 'Achromobacter': 1, 'Pseudomonas': 2}
+19	clus_tfdA_fw_341_rev_868_62	500	|genus|	3	3	29.8	{'Bradyrhizobium': 6, 'Variovorax': 1, 'Achromobacter': 1, 'Pseudomonas': 2}
+29	clus_tfdA_fw_120_rev_868_62	658	|genus|	6	6	28.6	{'Bradyrhizobium': 2, 'Achromobacter': 1, 'Pseudomonas': 5}
+6	clus_tfdA_fw_266_rev_868_62	538	|genus|	5	5	28.6	{'Bradyrhizobium': 3, 'Achromobacter': 1, 'Pseudomonas': 4}
+27	clus_tfdA_fw_120_rev_389_62	223	|genus|	5	5	28.6	{'Bradyrhizobium': 3, 'Achromobacter': 1, 'Pseudomonas': 6}
+34	clus_tfdA_fw_577_rev_868_62	254	|genus|	5	5	28.6	{'Bradyrhizobium': 1, 'Achromobacter': 1, 'Pseudomonas': 2}
+38	clus_tfdA_fw_389_rev_552_62	171	|genus|	5	5	28.6	{'Bradyrhizobium': 2, 'Achromobacter': 1, 'Pseudomonas': 9}
+36	clus_tfdA_fw_389_rev_651_62	251	|genus|	4	4	28.6	{'Bradyrhizobium': 8, 'Achromobacter': 1, 'Pseudomonas': 5}
+37	clus_tfdA_fw_389_rev_577_62	163	|genus|	4	4	28.6	{'Bradyrhizobium': 2, 'Achromobacter': 2, 'Pseudomonas': 1}
+11	clus_tfdA_fw_444_rev_868_62	374	|genus|	3	4	28.6	{'Bradyrhizobium': 2, 'Achromobacter': 1, 'Pseudomonas': 2}
+3	clus_tfdA_fw_266_rev_471_62	175	|genus|	3	3	28.6	{'Bradyrhizobium': 6, 'Achromobacter': 1, 'Pseudomonas': 4}
+25	clus_tfdA_fw_120_rev_471_62	295	|genus|	3	3	28.6	{'Bradyrhizobium': 4, 'Achromobacter': 1, 'Pseudomonas': 5}
+33	clus_tfdA_fw_471_rev_842_62	325	|genus|	3	3	28.6	{'Bradyrhizobium': 4, 'Achromobacter': 1, 'Pseudomonas': 1}
+1	clus_tfdA_fw_266_rev_444_62	154	|genus|	2	2	28.6	{'Bradyrhizobium': 5, 'Achromobacter': 5, 'Pseudomonas': 1}
+10	clus_tfdA_fw_444_rev_651_62	176	|genus|	2	2	28.6	{'Bradyrhizobium': 8, 'Achromobacter': 1, 'Pseudomonas': 3}
+22	clus_tfdA_fw_120_rev_444_62	267	|genus|	2	2	28.6	{'Bradyrhizobium': 3, 'Achromobacter': 3, 'Pseudomonas': 2}
+31	clus_tfdA_fw_471_rev_651_62	179	|genus|	2	2	28.6	{'Bradyrhizobium': 10, 'Achromobacter': 1, 'Pseudomonas': 7}
+15	clus_tfdA_fw_438_rev_842_62	302	|genus|	3	3	26.8	{'Bradyrhizobium': 4, 'Variovorax': 1, 'Pseudomonas': 2, 'Chryseobacterium': 1}
+43	clus_tfdA_fw_341_rev_877_62	424	|genus|	3	3	26.5	{'Achromobacter': 3, 'Pseudomonas': 1, 'Chryseobacterium': 1}
+45	clus_tfdA_fw_552_rev_877_62	242	|genus|	2	2	26.5	{'Achromobacter': 3, 'Pseudomonas': 3, 'Chryseobacterium': 1}
+48	clus_tfdA_fw_266_rev_877_62	469	|genus|	2	2	26.5	{'Achromobacter': 4, 'Pseudomonas': 1, 'Chryseobacterium': 1}
+50	clus_tfdA_fw_120_rev_877_62	595	|genus|	2	2	26.5	{'Achromobacter': 1, 'Pseudomonas': 1, 'Chryseobacterium': 1}
+2	clus_tfdA_fw_266_rev_438_62	154	|genus|	4	4	25.6	{'Bradyrhizobium': 3, 'Pseudomonas': 5, 'Chryseobacterium': 1}
+23	clus_tfdA_fw_120_rev_438_62	280	|genus|	4	4	25.6	{'Bradyrhizobium': 2, 'Pseudomonas': 5, 'Chryseobacterium': 1}
+13	clus_tfdA_fw_438_rev_651_62	128	|genus|	2	2	25.6	{'Bradyrhizobium': 5, 'Pseudomonas': 4, 'Chryseobacterium': 2}
+39	clus_tfdA_fw_389_rev_868_62	452	|genus|	6	6	24.5	{'Bradyrhizobium': 3, 'Variovorax': 1, 'Pseudomonas': 4}
+14	clus_tfdA_fw_438_rev_868_62	410	|genus|	5	5	24.5	{'Bradyrhizobium': 2, 'Variovorax': 1, 'Pseudomonas': 3}
+47	clus_tfdA_fw_389_rev_877_62	417	|genus|	1	1	24.2	{'Achromobacter': 3, 'Pseudomonas': 2}
+41	clus_tfdA_fw_552_rev_868_62	299	|genus|	5	5	23.3	{'Bradyrhizobium': 2, 'Pseudomonas': 6}
+8	clus_tfdA_fw_651_rev_868_62	218	|genus|	4	4	23.3	{'Bradyrhizobium': 8, 'Pseudomonas': 7}
+32	clus_tfdA_fw_471_rev_868_62	380	|genus|	4	4	23.3	{'Bradyrhizobium': 3, 'Pseudomonas': 5}
+52	clus_tfdA_fw_438_rev_877_62	337	|genus|	1	1	21.2	{'Pseudomonas': 2, 'Chryseobacterium': 1}
+9	clus_tfdA_fw_651_rev_842_62	192	|genus|	3	3	12.0	{'Bradyrhizobium': 10, 'Achromobacter': 1, 'Chryseobacterium': 2}
+35	clus_tfdA_fw_577_rev_842_62	206	|genus|	3	3	12.0	{'Bradyrhizobium': 3, 'Achromobacter': 2, 'Chryseobacterium': 1}
+12	clus_tfdA_fw_444_rev_842_62	340	|genus|	1	1	9.7	{'Bradyrhizobium': 5, 'Achromobacter': 2}
+46	clus_tfdA_fw_577_rev_877_62	241	|genus|	1	1	7.6	{'Achromobacter': 2, 'Chryseobacterium': 1}
+51	clus_tfdA_fw_651_rev_877_62	227	|genus|	1	1	7.6	{'Achromobacter': 1, 'Chryseobacterium': 2}
+44	clus_tfdA_fw_444_rev_877_62	372	|genus|	1	1	5.3	{'Achromobacter': 4}
+49	clus_tfdA_fw_471_rev_877_62	344	|genus|	1	1	5.3	{'Achromobacter': 1}

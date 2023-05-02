@@ -1,0 +1,1254 @@
+---
+title: "Manuscript_3_Data_Analysis_directory_RBRA"
+author: "Rita H. R. Branco"
+date: "3/16/2023"
+output: html_document
+---
+
+This is an R Markdown document contains an analysis of micropollutant removal, microbial activity and gene presence of an experiment of Rita H.R. Branco.
+
+## Install packages {.tabset .tabset-dropdown}
+
+```{r import data, message=F, echo=T, eval=T, warning=F, include=T, cache=F}
+knitr::opts_chunk$set(echo = TRUE)
+
+options(scipen = 999) # tell R to avoid all scientific notation
+
+# Package list
+packages <- c("rmarkdown", "readxl", "reshape2", "dplyr", "scales", "ggh4x", "RColorBrewer", "cowplot", "ggbreak", "ggplot2")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Load packages
+library(rmarkdown)
+library(readxl) 
+library(reshape2)
+library(dplyr)
+library(scales)
+library(ggh4x)
+library(RColorBrewer)
+library(cowplot)
+library(ggbreak)
+library(ggplot2)
+```
+
+# 1. Loading, exploring and treating the data
+
+## 1.1. Manuscript figures - Aerobic conditions
+
+### 1.1.1. Define the class of each column
+```{r 1.1.1. class of each column, message=F, echo=T, eval=T, warning=F, include=T, cache=F}
+all_data_short <- read_excel("input_data/Manuscript_3_figures.xlsx", col_types = c("text", "text", "text", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
+```
+
+### 1.1.2. Creating a compound column and respective concentration
+```{r 1.1.2. compound concentration, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+all_data_NA = melt(all_data_short, id.vars = c("community", "electron_acceptor", "batch", "DOM", "replicate", "time"), 
+                 variable.name = "compound", value.name = "concentration")
+```
+
+### 1.1.3. Removing NA data
+```{r 1.1.3. NA removal, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+all_data <- na.omit(all_data_NA)
+```
+
+### 1.1.4. Reordering data (reordering facets of facet plot using relevel function)
+```{r 1.1.4. reorder, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+data_ordered <- all_data
+data_ordered$community <- factor(data_ordered$community, levels = c("aquifer", "soil"))
+data_ordered$electron_acceptor <- factor(data_ordered$electron_acceptor, levels = c("oxygen", "nitrate"))
+data_ordered$batch <- factor(data_ordered$batch, levels = c("no_dom", "biotic", "abiotic"))
+data_ordered$DOM <- factor(data_ordered$DOM, levels = c("no_DOM", "humics", "dextran", "acetate", "acetate_dextran_humics"))
+data_ordered$replicate <- factor(data_ordered$replicate, levels = c("A", "B", "C"))
+data_ordered$compound <- factor(data_ordered$compound, levels = c("24_D", "MCPP", "CLZ", "CLZ_DP", "CLZ_MDP", "DCB", "BAM", "MET", "MET_ESA", "MET_OA", "BTZ", "ANP", "CBZ", "GAB", "ACK", "1H_BTR", "HUM", "BIOPOL", "ACET", "LMWA", "LMWN", "HOC", "CDOC", "DOC", "O2", "CO2", "NO3", "NO2", "DNA", "16S_bac", "16S_arc", "tfdA_87_88", "tfdA_95_96", "tfdA_total"))
+```
+
+### 1.1.5. Removing inactive batches
+```{r 1.1.5. remove inactive batches, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#active batches
+data_ordered_act <- data_ordered %>% filter(electron_acceptor == "oxygen" & !batch == "abiotic")
+```
+
+### 1.1.6. Keeping only micropollutants in compound column
+```{r 1.1.6. keep MP removed, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#micropollutants removed
+data_micropol <- data_ordered_act %>% filter(compound == "24_D" | compound == "MCPP" | compound == "CLZ" | compound == "CLZ_DP")
+data_24_D <- data_ordered_act %>% filter(compound == "24_D")
+data_MCPP <- data_ordered_act %>% filter(compound == "MCPP")
+data_CLZ <- data_ordered_act %>% filter(compound == "CLZ")
+data_CLZ_DP <- data_ordered_act %>% filter(compound == "CLZ_DP")
+```
+
+### 1.1.7. Keeping only DOC in compound column
+```{r 1.1.7. keep DOC, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#DOC added
+data_DOC <- data_ordered_act %>% filter((compound == "ACET" & DOM == "acetate") | (compound == "BIOPOL" & DOM == "dextran") | (compound == "HUM" & DOM == "humics"))
+```
+
+### 1.1.8. Keeping only respiration data in compound column
+```{r 1.1.8. keep respiration data, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#O2
+data_resp_oxy <- data_ordered_act %>% filter(compound == "O2")
+
+#CO2
+data_resp_diox <- data_ordered_act %>% filter(compound == "CO2")
+```
+
+### 1.1.9. Keeping only 16S in compound column
+```{r 1.1.9. keep 16S data, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#16S
+data_16S <- data_ordered_act %>% filter(compound == "16S_bac" | compound == "16S_arc")
+data_16S_bac <- data_ordered_act %>% filter(compound == "16S_bac")
+data_16S_arc <- data_ordered_act %>% filter(compound == "16S_arc")
+```
+
+### 1.1.10. Keeping only tfdA data in compound column
+```{r 1.1.10. keep tfdA data, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#tfdA
+data_tfdA <- data_ordered_act %>% filter(compound == "tfdA_87_88" | compound == "tfdA_95_96" | compound == "tfdA_total")
+data_tfdA_primers <- data_ordered_act %>% filter(compound == "tfdA_87_88" | compound == "tfdA_95_96")
+data_tfdA_87_88 <- data_ordered_act %>% filter(compound == "tfdA_87_88")
+data_tfdA_95_96 <- data_ordered_act %>% filter(compound == "tfdA_95_96")
+```
+
+## 1.2. Supplementary figures - Aerobic conditions
+
+### 1.2.1. Define the class of each column
+```{r 1.2.1. class of each column, message=F, echo=T, eval=T, warning=F, include=T, cache=F}
+supp_mat_short <- read_excel("input_data/Manuscript_3_supplementary_material.xlsx", col_types = c("text", "text", "text", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
+```
+
+### 1.2.2. Creating a compound column and respective concentration
+```{r 1.2.2. compound concentration, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+supp_mat_NA = melt(supp_mat_short, id.vars = c("community", "electron_acceptor", "batch", "DOM", "replicate", "time"), 
+                 variable.name = "compound", value.name = "concentration")
+```
+
+### 1.2.3. Removing NA data
+```{r 1.2.3. NA removal, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+supp_mat <- na.omit(supp_mat_NA)
+```
+
+### 1.2.4. Reordering data (reordering facets of facet plot using relevel function)
+```{r 1.2.4. reorder, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+supp_ordered <- supp_mat
+supp_ordered$community <- factor(supp_ordered$community, levels = c("aquifer", "soil"))
+supp_ordered$electron_acceptor <- factor(supp_ordered$electron_acceptor, levels = c("oxygen", "nitrate"))
+supp_ordered$batch <- factor(supp_ordered$batch, levels = c("no_dom", "biotic", "abiotic"))
+supp_ordered$DOM <- factor(supp_ordered$DOM, levels = c("no_DOM", "humics", "dextran", "acetate", "acetate_dextran_humics"))
+supp_ordered$replicate <- factor(supp_ordered$replicate, levels = c("A", "B", "C"))
+supp_ordered$compound <- factor(supp_ordered$compound, levels = c("DOC", "HUM", "BIOPOL", "LMWA", "LMWN", "HOC", "CDOC"))
+```
+
+### 1.2.5. Removing inactive batches
+```{r 1.2.5. remove inactive batches, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#active batches
+supp_ordered_act <- supp_ordered %>% filter(electron_acceptor == "oxygen" & !batch == "abiotic")
+```
+
+### 1.2.6. Delect the differen DOC fractions
+```{r 1.2.6. DOC fractions, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#DOC fractions
+supp_DOC <- supp_ordered_act %>% filter(compound == "DOC")
+supp_HUM <- supp_ordered_act %>% filter(compound == "HUM")
+supp_BIOPOL <- supp_ordered_act %>% filter(compound == "BIOPOL")
+supp_LMWA <- supp_ordered_act %>% filter(compound == "LMWA")
+supp_LMWN <- supp_ordered_act %>% filter(compound == "LMWN")
+supp_HOC <- supp_ordered_act %>% filter(compound == "HOC")
+```
+
+## 1.3. Supplementary figures - Soil nitrate reducing conditions
+
+### 1.3.1. Keeping inactive batches
+```{r 1.3.1. keep inactive batches, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#inactive batches
+data_ordered_inact <- data_ordered %>% filter(electron_acceptor == "nitrate" & !batch == "abiotic")
+```
+
+### 1.3.2. Keeping only DOC in compound column
+```{r 1.3.2. keep DOC, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#DOC added
+data_DOC_nitrate <- data_ordered_inact %>% filter(((compound == "ACET" & DOM == "acetate") | (compound == "BIOPOL" & DOM == "dextran") | (compound == "HUM" & DOM == "humics")) & (community == "soil"))
+```
+
+### 1.3.3. Keeping only nitrate in compound column
+```{r 1.3.3. keep DOC, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
+#DOC added
+data_NO3_nitrate <- data_ordered_inact %>% filter(compound == "NO3" & community == "soil")
+```
+
+# 2. Results
+
+## 2.1. Figure 1
+
+### 2.1.1. DOC added
+```{r DOC added, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
+breakscompounds_1 <- c("HUM", "BIOPOL", "ACET")
+valuesfill_1 <- c("#FDDBC7", "#D1E5F0", "#2166AC")
+valuesshape_1 <- c(21, 21, 21)
+
+DOC <- ggplot(data = data_DOC, mapping = aes(x = time,
+                                      y = concentration,
+                                      colour = compound,
+                                      fill = compound,
+                                      shape = compound,
+                                      linetype = compound)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data = "mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data="mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breakscompounds_1,
+                     values = valuesshape_1) +
+  scale_fill_manual (breaks = breakscompounds_1, 
+                     values = valuesfill_1) +
+  scale_linetype_manual(breaks = breakscompounds_1, 
+                        values = c(1,1,1)) +
+  facet_wrap("community", ncol = 2) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.05, 1.25), 
+                     breaks = seq(0, 1.2, 0.2), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+DOC
+```
+
+### 2.1.2. Microbial respiration activity
+```{r microbial respiration, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
+breaksdoc_1 <- c("no_DOM", "humics", "dextran", "acetate")
+valuesfill_2 <- c("#B2182B", "#FDDBC7", "#D1E5F0", "#2166AC")
+valuesshape_2 <- c(21, 21, 21, 21)
+
+O2 <- ggplot(data = data_resp_oxy, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap("community", ncol = 2) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.1575, 0.0375), 
+                     breaks = seq(-0.150, 0.03, 0.03), 
+                     expand = c(0,0)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+O2
+
+CO2 <- ggplot(data = data_resp_diox, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap("community", ncol = 2) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.0125, 0.3125), 
+                     breaks = seq(0, 0.3, 0.05), 
+                     expand = c(0,0)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+CO2
+```
+
+### 2.1.3. Microbial growth
+```{r microbial growth, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=4}
+growth <- ggplot() +
+  geom_bar(data = data_16S_bac, mapping = aes(x = as.factor(DOM),
+                                          y = concentration,
+                                          col = compound,
+                                          fill = compound),
+           stat = "summary",
+           fun.data = "mean_se",
+           colour = "black",
+           position = "identity",
+           fill = "#FDDBC7",
+           width = 0.8,
+           linewidth = 0.3) +
+  geom_errorbar(data = data_16S_bac, mapping = aes(x = as.factor(DOM),
+                                          y = concentration),
+                stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                position = "identity",
+                width = 0.6,
+                linewidth = 0.25) +
+  geom_bar(data = data_16S_arc, mapping = aes(x = as.factor(DOM),
+                                          y = concentration,
+                                          col = compound,
+                                          fill = compound),
+           stat = "summary",
+           fun.data = "mean_se",
+           colour = "black",
+           position = "identity",
+           fill = "#D1E5F0",
+           alpha = 0.7,
+           width = 0.4,
+           linewidth = 0.3) +
+  geom_errorbar(data = data_16S_arc, mapping = aes(x = as.factor(DOM),
+                                          y = concentration),
+                stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                position = "identity",
+                width = 0.2,
+                linewidth = 0.25) +
+  scale_y_continuous(trans = "log10",
+                     breaks = trans_breaks("log10", function(x) 10^x, n=5),
+                     labels = trans_format("log10", math_format(10^.x)),
+                     expand = c(0,0)) +
+  coord_cartesian(ylim = c(1e+5, 1.5e+9)) + 
+  facet_nested(~ community + time) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.text.x	= element_text(angle = 45, hjust = 1),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+growth
+
+legend <- ggplot(data=data_16S, aes(x = as.factor(DOM),
+                                        y = concentration,
+                                        col = compound,
+                                        fill = compound)) +
+  geom_bar(stat="identity", position ="identity") +
+  scale_colour_manual(values=c("black", "black")) +
+  scale_fill_manual(values=c("#FDDBC7", "#D1E5F0")) +
+  scale_alpha_manual(values=c(1, 0.7)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.text.x	= element_text(angle = 45, hjust = 1),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+```
+
+### 2.1.4. Final figure
+```{r figure 1, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=8}
+legend_batch <- get_legend(O2)
+
+legend_16S <- get_legend(legend)
+
+plot_grid(DOC + theme(legend.position="none"),
+          O2 + theme(legend.position="none"),
+          CO2 + theme(legend.position="none"),
+          legend_batch,
+          growth + theme(legend.position="none"),
+          legend_16S,
+          nrow = 6,
+          ncol = 1,
+          labels = c("A", "B", "C", "", "D", ""),
+          rel_heights = c(5, 5, 5, 1, 6, 1))
+```
+
+**Figure 1**. A) Consumption of added DOC for biotic batches; B) Cumulative O2 consumption and CO2 production by aquifer and soil communities for no DOC and biotic batches; C) qPCR of total bacterial and archaeal 16S rRNA genes for no DOC and biotic batches under aerobic conditions for each microbial community.<br>
+
+## 2.2. Figure 2
+
+### 2.2.1. MP data
+
+```{r MP data, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
+breaksdoc_1 <- c("no_DOM", "humics", "dextran", "acetate")
+valuesfill_2 <- c("#B2182B", "#FDDBC7", "#D1E5F0", "#2166AC")
+valuesshape_2 <- c(21, 21, 21, 21)
+
+MP_24_D <- ggplot(data = data_24_D, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_nested(~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.06, 1.46), 
+                     breaks = seq(0, 1.4, 0.2), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+MP_24_D
+
+MP_MCPP <- ggplot(data = data_MCPP, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_nested(~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.07, 2.08), 
+                     breaks = seq(0, 2, 0.2), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  coord_cartesian(ylim = c(-0.07, 1.67)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+MP_MCPP
+
+MP_CLZ <- ggplot(data = data_CLZ, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_nested(~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.05, 1.25), 
+                     breaks = seq(0, 1.2, 0.2), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+MP_CLZ
+
+MP_CLZ_DP <- ggplot(data = data_CLZ_DP, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_nested(~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(0.75, 2.05), 
+                     breaks = seq(0.8, 2, 0.2), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+MP_CLZ_DP
+```
+
+### 2.2.2. tfdA
+```{r tfdA, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=4}
+functional <- ggplot() +
+  geom_bar(data = data_tfdA_87_88, mapping = aes(x = as.factor(DOM),
+                                          y = concentration,
+                                          col = compound,
+                                          fill = compound),
+           stat = "summary",
+           fun.data = "mean_se",
+           colour = "black",
+           position = "identity",
+           fill = "#FDDBC7",
+           width = 0.8,
+           size = 0.3) +
+  geom_errorbar(data = data_tfdA_87_88, mapping = aes(x = as.factor(DOM),
+                                          y = concentration),
+                stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                position = "identity",
+                width = 0.6,
+                linewidth = 0.25) +
+  geom_bar(data = data_tfdA_95_96, mapping = aes(x = as.factor(DOM),
+                                          y = concentration,
+                                          col = compound,
+                                          fill = compound),
+           stat = "summary",
+           fun.data = "mean_se",
+           colour = "black",
+           position = "identity",
+           fill = "#D1E5F0",
+           alpha = 0.7,
+           width = 0.4,
+           size = 0.3) +
+  geom_errorbar(data = data_tfdA_95_96, mapping = aes(x = as.factor(DOM),
+                                          y = concentration),
+                stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                position = "identity",
+                width = 0.2,
+                linewidth = 0.25) +
+  scale_y_continuous(trans = "log10",
+                    breaks = trans_breaks("log10", function(x) 10^x, n = 5),
+                     labels = trans_format("log10", math_format(10^.x)),
+                     expand = c(0,0)) +
+  coord_cartesian(ylim = c(1e+1, 1.5e+5)) +
+  facet_nested(~ community + time) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.text.x	= element_text(angle = 45, hjust = 1),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+legend_2 <- ggplot(data=data_tfdA_primers, aes(x = as.factor(DOM),
+                                        y = concentration,
+                                        col = compound,
+                                        fill = compound)) +
+  geom_bar(stat="identity", position ="identity") +
+  scale_colour_manual(values=c("black", "black")) +
+  scale_fill_manual(values=c("#FDDBC7", "#D1E5F0")) +
+  scale_alpha_manual(values=c(1, 0.7)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.text.x	= element_text(angle = 45, hjust = 1),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+functional
+```
+
+### 2.2.3. Final figure
+```{r figure 2, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=13}
+legend_MP <- get_legend(MP_24_D)
+
+legend_tfdA <- get_legend(legend_2)
+
+plot_grid(MP_24_D + theme(legend.position="none"),
+          MP_MCPP + theme(legend.position="none"),
+          MP_CLZ + theme(legend.position="none"),
+          MP_CLZ_DP + theme(legend.position="none"),
+          legend_MP,
+          functional + theme(legend.position="none"),
+          legend_tfdA,
+          nrow = 7,
+          ncol = 1,
+          labels = c("A", "", "", "", "", "B", ""),
+          rel_heights = c(5, 5, 5, 5, 1, 6, 1))
+```
+
+**Figure 2**. A) Consumption of 2,4-D, MCPP, and CLZ and CLZ DP production by aquifer and soil communities in no DOC and biotic batches; B) qPCR of tfdA functional gene for no DOC and biotic batches under aerobic conditions for each microbial community.<br>
+
+# 3. Supplementary material
+
+## 3.1. Figure S1
+```{r DOC, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=5.5, fig.height=2.8}
+breaksdoc_1 <- c("no_DOM", "humics", "dextran", "acetate")
+valuesfill_2 <- c("#B2182B", "#FDDBC7", "#D1E5F0", "#2166AC")
+valuesshape_2 <- c(21, 21, 21, 21)
+
+DOC_all <- ggplot(data = supp_DOC, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap (~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.6, 15.6), 
+                     breaks = seq(0, 15, 2.5), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.1)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15)) +
+  theme(legend.position="none")
+
+DOC_all
+```
+
+
+```{r BIOPOL, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
+BIOPOL <- ggplot(data = supp_BIOPOL, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap (~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.025, 13), 
+                     breaks = seq(0, 12, 0.1), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  scale_y_break(c(0.5, 3), scales=0.5, ticklabels=c(4.00, 8.00, 12.0)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15)) +
+  theme(legend.position="none")
+
+BIOPOL
+```
+
+```{r HUM, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
+HUM <- ggplot(data = supp_HUM, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap (~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.025, 12.25), 
+                     breaks = seq(0, 12, 0.5), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  scale_y_break(c(3, 8), scales=0.5, ticklabels=c(8.00, 10.0, 12.0)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15)) +
+  theme(legend.position="none")
+
+HUM
+```
+
+```{r LMWA, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
+LMWA <- ggplot(data = supp_LMWA, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap (~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.025, 11.5), 
+                     breaks = seq(0, 11, 0.2), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  scale_y_break(c(1, 7), scales=0.5, ticklabels=c(7, 9, 11)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15)) +
+  theme(legend.position="none")
+
+LMWA
+```
+
+```{r LMWN, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=5.5, fig.height=2.8}
+LMWN <- ggplot(data = supp_LMWN, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap (~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.13, 4), 
+                     breaks = seq(0, 3, 0.5), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  coord_cartesian(ylim = c(-0.13, 3.13)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15)) +
+  theme(legend.position="none")
+
+LMWN
+```
+
+```{r HOC, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=5.5, fig.height=2.8}
+HOC <- ggplot(data = supp_HOC, mapping = aes(x = time,
+                                           y = concentration,
+                                           colour = DOM,
+                                           fill = DOM,
+                                           shape = DOM,
+                                           linetype = DOM)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25) +
+  geom_line(stat = "summary", 
+            fun.data ="mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data = "mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breaksdoc_1,
+                     values = valuesshape_2) +
+  scale_fill_manual (breaks = breaksdoc_1, 
+                     values = valuesfill_2) +
+  scale_linetype_manual(breaks = breaksdoc_1, 
+                        values = c(1,1,1,1)) +
+  facet_wrap (~ community) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.1, 3), 
+                     breaks = seq(0, 2.5, 0.5), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  coord_cartesian(ylim = c(-0.1, 2.6)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15)) +
+  theme(legend.position="none")
+
+HOC
+```
+
+**Figure S1**. Total DOC and DOC fractions overtime for no DOC and biotic batches of both communities .<br>
+
+## 3.2. Figure S2
+```{r Figure S2, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=3, fig.height=3}
+DOC_nitrate <- ggplot(data = data_DOC_nitrate, mapping = aes(x = time,
+                                      y = concentration,
+                                      colour = compound,
+                                      fill = compound,
+                                      shape = compound,
+                                      linetype = compound)) +
+  geom_errorbar(stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                linewidth = 0.25,
+                width = 2) +
+  geom_line(stat = "summary", 
+            fun.data = "mean_se",
+            colour = "black", 
+            linewidth = 0.4) +
+  geom_point(stat = "summary",
+             fun.data="mean_se",
+             colour = "black") +
+  scale_shape_manual(breaks = breakscompounds_1,
+                     values = valuesshape_1) +
+  scale_fill_manual (breaks = breakscompounds_1, 
+                     values = valuesfill_1) +
+  scale_linetype_manual(breaks = breakscompounds_1, 
+                        values = c(1,1,1)) +
+  scale_x_continuous(limits = c(-3, 108),
+                     breaks = seq(0, 105, 20),
+                     expand = c(0,0)) +
+  scale_y_continuous(limits = c(-0.05, 1.25), 
+                     breaks = seq(0, 1.2, 0.2), 
+                     expand = c(0,0),
+                     labels = label_number(accuracy = 0.01)) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(12, "pt"),
+        legend.key.height = unit(10, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+DOC_nitrate
+```
+
+**Figure S2**. Consumption of added DOC for biotic batches under nitrate reducing conditions by soil microbial community.<br>
+
+# 4. Color pallet
+```{r color pallet, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
+display.brewer.pal(n = 6, name = "RdBu")
+brewer.pal(n = 6, name = "RdBu")
+```

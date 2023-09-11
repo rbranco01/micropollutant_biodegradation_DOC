@@ -76,11 +76,11 @@ data_ordered_act <- data_ordered %>% filter(electron_acceptor == "oxygen" & !bat
 ### 1.1.6. Keeping only micropollutants in compound column
 ```{r 1.1.6. keep MP removed, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
 #micropollutants removed
-data_micropol <- data_ordered_act %>% filter(compound == "24_D" | compound == "MCPP" | compound == "CLZ" | compound == "CLZ_DP")
-data_24_D <- data_ordered_act %>% filter(compound == "24_D")
-data_MCPP <- data_ordered_act %>% filter(compound == "MCPP")
-data_CLZ <- data_ordered_act %>% filter(compound == "CLZ")
-data_CLZ_DP <- data_ordered_act %>% filter(compound == "CLZ_DP")
+data_micropol <- data_ordered %>% filter(electron_acceptor == "oxygen" & (compound == "24_D" | compound == "MCPP" | compound == "CLZ" | compound == "CLZ_DP"))
+data_24_D <- data_micropol %>% filter(compound == "24_D")
+data_MCPP <- data_micropol %>% filter(compound == "MCPP")
+data_CLZ <- data_micropol %>% filter(compound == "CLZ")
+data_CLZ_DP <- data_micropol %>% filter(compound == "CLZ_DP")
 ```
 
 ### 1.1.7. Keeping only DOC in compound column
@@ -113,6 +113,7 @@ data_tfdA <- data_ordered_act %>% filter(compound == "tfdA_87_88" | compound == 
 data_tfdA_primers <- data_ordered_act %>% filter(compound == "tfdA_87_88" | compound == "tfdA_95_96")
 data_tfdA_87_88 <- data_ordered_act %>% filter(compound == "tfdA_87_88")
 data_tfdA_95_96 <- data_ordered_act %>% filter(compound == "tfdA_95_96")
+data_tfdA_total <- data_ordered_act %>% filter(compound == "tfdA_total")
 ```
 
 ## 1.2. Supplementary figures - Aerobic conditions
@@ -279,8 +280,8 @@ O2 <- ggplot(data = data_resp_oxy, mapping = aes(x = time,
   scale_x_continuous(limits = c(-3, 108),
                      breaks = seq(0, 105, 20),
                      expand = c(0,0)) +
-  scale_y_continuous(limits = c(-0.1575, 0.0375), 
-                     breaks = seq(-0.150, 0.03, 0.03), 
+  scale_y_continuous(limits = c(-0.0375, 0.1575), 
+                     breaks = seq(-0.03, 0.15, 0.03), 
                      expand = c(0,0)) +
   theme_classic() +
   theme(axis.text = element_text(size = 7, colour = "black"),
@@ -485,9 +486,9 @@ plot_grid(DOC + theme(legend.position="none"),
 ### 2.2.1. MP data
 
 ```{r MP data, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}
-breaksdoc_1 <- c("no_DOM", "humics", "dextran", "acetate")
-valuesfill_2 <- c("#B2182B", "#FDDBC7", "#D1E5F0", "#2166AC")
-valuesshape_2 <- c(21, 21, 21, 21)
+breaksdoc_1 <- c("no_DOM", "humics", "dextran", "acetate", "acetate_dextran_humics")
+valuesfill_2 <- c("#B2182B", "#FDDBC7", "#D1E5F0", "#2166AC", "#F7F7F7")
+valuesshape_2 <- c(21, 21, 21, 21, 32)
 
 MP_24_D <- ggplot(data = data_24_D, mapping = aes(x = time,
                                            y = concentration,
@@ -511,7 +512,7 @@ MP_24_D <- ggplot(data = data_24_D, mapping = aes(x = time,
   scale_fill_manual (breaks = breaksdoc_1, 
                      values = valuesfill_2) +
   scale_linetype_manual(breaks = breaksdoc_1, 
-                        values = c(1,1,1,1)) +
+                        values = c(1,1,1,1,2)) +
   facet_nested(~ community) +
   scale_x_continuous(limits = c(-3, 108),
                      breaks = seq(0, 105, 20),
@@ -565,7 +566,7 @@ MP_MCPP <- ggplot(data = data_MCPP, mapping = aes(x = time,
   scale_fill_manual (breaks = breaksdoc_1, 
                      values = valuesfill_2) +
   scale_linetype_manual(breaks = breaksdoc_1, 
-                        values = c(1,1,1,1)) +
+                        values = c(1,1,1,1,2)) +
   facet_nested(~ community) +
   scale_x_continuous(limits = c(-3, 108),
                      breaks = seq(0, 105, 20),
@@ -620,7 +621,7 @@ MP_CLZ <- ggplot(data = data_CLZ, mapping = aes(x = time,
   scale_fill_manual (breaks = breaksdoc_1, 
                      values = valuesfill_2) +
   scale_linetype_manual(breaks = breaksdoc_1, 
-                        values = c(1,1,1,1)) +
+                        values = c(1,1,1,1,2)) +
   facet_nested(~ community) +
   scale_x_continuous(limits = c(-3, 108),
                      breaks = seq(0, 105, 20),
@@ -674,7 +675,7 @@ MP_CLZ_DP <- ggplot(data = data_CLZ_DP, mapping = aes(x = time,
   scale_fill_manual (breaks = breaksdoc_1, 
                      values = valuesfill_2) +
   scale_linetype_manual(breaks = breaksdoc_1, 
-                        values = c(1,1,1,1)) +
+                        values = c(1,1,1,1,2)) +
   facet_nested(~ community) +
   scale_x_continuous(limits = c(-3, 108),
                      breaks = seq(0, 105, 20),
@@ -709,82 +710,30 @@ MP_CLZ_DP
 
 ### 2.2.2. tfdA
 ```{r tfdA, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=4}
-functional <- ggplot() +
-  geom_bar(data = data_tfdA_87_88, mapping = aes(x = as.factor(DOM),
-                                          y = concentration,
-                                          col = compound,
-                                          fill = compound),
-           stat = "summary",
+functional <- ggplot(data = data_tfdA_total, mapping = aes(x = as.factor(DOM),
+                                                 y = concentration,
+                                                 col = community,
+                                                 fill = community)) +
+  geom_bar(stat = "summary",
            fun.data = "mean_se",
            colour = "black",
-           position = "identity",
-           fill = "#FDDBC7",
+           position = position_dodge(preserve = 'single'),
            width = 0.8,
            size = 0.3) +
-  geom_errorbar(data = data_tfdA_87_88, mapping = aes(x = as.factor(DOM),
-                                          y = concentration),
+  scale_fill_manual(values = c("#D1E5F0", "#FDDBC7")) +
+  geom_errorbar(aes(ymax = concentration, ymin = concentration),
                 stat = "summary",
                 fun.data = "mean_se",
                 colour = "black",
-                position = "identity",
-                width = 0.6,
-                linewidth = 0.25) +
-  geom_bar(data = data_tfdA_95_96, mapping = aes(x = as.factor(DOM),
-                                          y = concentration,
-                                          col = compound,
-                                          fill = compound),
-           stat = "summary",
-           fun.data = "mean_se",
-           colour = "black",
-           position = "identity",
-           fill = "#D1E5F0",
-           alpha = 0.7,
-           width = 0.4,
-           size = 0.3) +
-  geom_errorbar(data = data_tfdA_95_96, mapping = aes(x = as.factor(DOM),
-                                          y = concentration),
-                stat = "summary",
-                fun.data = "mean_se",
-                colour = "black",
-                position = "identity",
-                width = 0.2,
+                position = position_dodge(preserve = 'single'),
+                width = 0.5,
                 linewidth = 0.25) +
   scale_y_continuous(trans = "log10",
                     breaks = trans_breaks("log10", function(x) 10^x, n = 5),
                      labels = trans_format("log10", math_format(10^.x)),
                      expand = c(0,0)) +
-  coord_cartesian(ylim = c(1e+1, 1.5e+5)) +
+  coord_cartesian(ylim = c(1e+1, 1.7e+5)) +
   facet_nested(~ community + time) +
-  theme_classic() +
-  theme(axis.text = element_text(size = 7, colour = "black"),
-        axis.text.x	= element_text(angle = 45, hjust = 1),
-        axis.ticks = element_line(linewidth = 0.25),
-        axis.title = element_text(size = 9),
-        axis.title.x = element_text(margin = margin(t = 7)),
-        axis.title.y = element_text(margin = margin(r = 7)),
-        axis.line = element_blank(),
-        legend.text	= element_text(size = 7),
-        legend.title = element_text(size = 8),
-        legend.key.width = unit(12, "pt"),
-        legend.key.height = unit(10, "pt"),
-        legend.position ="bottom",
-        strip.text = element_text(size = 8),
-        strip.background = element_blank(),
-        panel.spacing = unit(5, "pt"),
-        panel.border = element_rect(colour = "black", 
-                                    fill = NA, 
-                                    linewidth = 0.5),
-        panel.grid.major = element_line(colour = "grey87",
-                                        linewidth = 0.15))
-
-legend_2 <- ggplot(data=data_tfdA_primers, aes(x = as.factor(DOM),
-                                        y = concentration,
-                                        col = compound,
-                                        fill = compound)) +
-  geom_bar(stat="identity", position ="identity") +
-  scale_colour_manual(values=c("black", "black")) +
-  scale_fill_manual(values=c("#FDDBC7", "#D1E5F0")) +
-  scale_alpha_manual(values=c(1, 0.7)) +
   theme_classic() +
   theme(axis.text = element_text(size = 7, colour = "black"),
         axis.text.x	= element_text(angle = 45, hjust = 1),
@@ -1189,7 +1138,60 @@ HOC
 **Figure S1**. Total DOC and DOC fractions overtime for no DOC and biotic batches of both communities .<br>
 
 ## 3.2. Figure S2
-```{r Figure S2, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=3, fig.height=3}
+```{r Figure S2, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3.5}
+tfdA_s <- ggplot(data = data_tfdA_primers, mapping = aes(x = as.factor(DOM),
+                                                 y = concentration,
+                                                 col = compound,
+                                                 fill = compound)) +
+  geom_bar(stat = "summary",
+           fun.data = "mean_se",
+           colour = "black",
+           position = position_dodge(preserve = 'single'),
+           width = 0.8,
+           size = 0.3) +
+  scale_fill_manual(values = c("#FDDBC7", "#D1E5F0")) +
+  geom_errorbar(aes(ymax = concentration, ymin = concentration),
+                stat = "summary",
+                fun.data = "mean_se",
+                colour = "black",
+                position = position_dodge(preserve = 'single'),
+                width = 0.8,
+                linewidth = 0.25) +
+  scale_y_continuous(trans = "log10",
+                    breaks = trans_breaks("log10", function(x) 10^x, n = 5),
+                     labels = trans_format("log10", math_format(10^.x)),
+                     expand = c(0,0)) +
+  coord_cartesian(ylim = c(1e+1, 1.5e+5)) +
+  facet_nested(~ community + time) +
+  theme_classic() +
+  theme(axis.text = element_text(size = 7, colour = "black"),
+        axis.text.x	= element_text(angle = 45, hjust = 1),
+        axis.ticks = element_line(linewidth = 0.25),
+        axis.title = element_text(size = 9),
+        axis.title.x = element_text(margin = margin(t = 7)),
+        axis.title.y = element_text(margin = margin(r = 7)),
+        axis.line = element_blank(),
+        legend.text	= element_text(size = 7),
+        legend.title = element_text(size = 8),
+        legend.key.width = unit(8, "pt"),
+        legend.key.height = unit(6, "pt"),
+        legend.position ="bottom",
+        strip.text = element_text(size = 8),
+        strip.background = element_blank(),
+        panel.spacing = unit(5, "pt"),
+        panel.border = element_rect(colour = "black", 
+                                    fill = NA, 
+                                    linewidth = 0.5),
+        panel.grid.major = element_line(colour = "grey87",
+                                        linewidth = 0.15))
+
+tfdA_s
+```
+
+**Figure S2**. Concentration of tfdA gene per primer pair for no-DOC and biotic batches under aerobic conditions for each microbial community.<br>
+
+## 3.2. Figure S3
+```{r Figure S3, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=3, fig.height=3}
 DOC_nitrate <- ggplot(data = data_DOC_nitrate, mapping = aes(x = time,
                                       y = concentration,
                                       colour = compound,
@@ -1245,7 +1247,7 @@ DOC_nitrate <- ggplot(data = data_DOC_nitrate, mapping = aes(x = time,
 DOC_nitrate
 ```
 
-**Figure S2**. Consumption of added DOC for biotic batches under nitrate reducing conditions by soil microbial community.<br>
+**Figure S3**. Consumption of added DOC for biotic batches under nitrate reducing conditions by soil microbial community.<br>
 
 # 4. Color pallet
 ```{r color pallet, message=F, echo=T, eval=T, warning=T, include=T, cache=F, fig.width=6, fig.height=3}

@@ -1,6 +1,6 @@
 # micropollutant_biodegradation_DOC
 
-This is repository contains the analysis of micropollutant removal, dissolved organic carbon (DOC) consumption, microbial activity and microbial growth of an experiment studying micropollutant removal by a soil and an aquifer activated communities. The dataset describes the temporal changes of micropollutant, DOC fractions, electron acceptor, bacterial and archaeal 16S rRNA genes and *tfdA* gene concentrations under aerobic and nitrate reducing conditions.
+This is repository contains the analysis of micropollutant removal, dissolved organic carbon (DOC) consumption, microbial activity and microbial growth of an experiment studying micropollutant removal by a soil and an aquifer activated communities. The dataset describes the temporal changes of micropollutant, DOC fractions, electron acceptor, bacterial and archaeal 16S rRNA genes and *tfdA* gene concentrations under aerobic and nitrate reducing conditions as different DOC amendments are performed.
 
 Chemical input data were obtained with liquid chromatograph-mass spectrometer, liquid chromatography-organic carbon detection, gas chromatograph and ion chromatograph. Molecular biology input data were obtained with qPCR. The micropollutant, DOC fraction, electron acceptor and gene concentrations tables were imported into R (in input_data/). The unprocessed/untreated data used to create the R input data has also been included in the repository (in raw_data/).
 

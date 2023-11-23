@@ -151,7 +151,7 @@ supp_ordered$compound <- factor(supp_ordered$compound, levels = c("DOC", "HUM", 
 supp_ordered_act <- supp_ordered %>% filter(electron_acceptor == "oxygen" & !batch == "abiotic")
 ```
 
-### 1.2.6. Delect the differen DOC fractions
+### 1.2.6. Select the differen DOC fractions
 ```{r 1.2.6. DOC fractions, message=F, echo=T, eval=T, warning=T, include=T, cache=F}
 #DOC fractions
 supp_DOC <- supp_ordered_act %>% filter(compound == "DOC")

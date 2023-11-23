@@ -6,6 +6,6 @@ Chemical input data were obtained with liquid chromatograph-mass spectrometer, l
 
 For this study, primers targeting *tfdA* gene were designed. The qPCR primer design output files are also included in this repository (in qPCR_primer_design_output/).
 
-This analysis was published as [**Branco et al. (2024)**](https://doi.org/10.1016/j.scitotenv.2023.165233) in Chemosphere, titled *Influence of redox condition and inoculum on micropollutant biodegradation by soil and activated sludge communities*.
+This analysis was published as [**Branco et al. (2024)**](https://doi.org/10.1016/j.chemosphere.2023.140644) in Chemosphere, titled *Effect of dissolved organic carbon on micropollutant biodegradation by aquifer and soil microbial communities*.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
